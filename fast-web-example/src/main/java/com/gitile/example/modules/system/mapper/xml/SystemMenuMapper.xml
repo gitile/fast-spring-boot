@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gitile.example.modules.system.mapper.SystemMenuMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.gitile.example.modules.system.entity.SystemMenu">
+        <id column="id" property="id" />
+        <result column="parent_id" property="parentId" />
+        <result column="category" property="category" />
+        <result column="name" property="name" />
+        <result column="url" property="url" />
+        <result column="perms" property="perms" />
+        <result column="icon" property="icon" />
+        <result column="sort" property="sort" />
+    </resultMap>
+    
+   	<!-- 查询用户的所有权限 -->
+	<select id="selectUserAllPerms" resultType="string">
+		SELECT 
+			DISTINCT sm.perms 
+		FROM system_user su
+		LEFT JOIN system_role_menu srm ON srm.role_id = su.role_id 
+		LEFT JOIN system_menu sm ON srm.menu_id = sm.id
+		WHERE su.id = #{userId} AND sm.perms is not null
+	</select>
+
+   	<!-- 判断用户是否有某一权限 -->
+	<select id="selectUserPermsCount" resultType="int">
+		SELECT 
+			count(sm.id)
+		FROM system_user su
+		LEFT JOIN system_role_menu srm ON srm.role_id = su.role_id 
+		LEFT JOIN system_menu sm ON srm.menu_id = sm.id
+		WHERE su.id = #{userId} AND sm.perms = #{perms}
+	</select>
+
+</mapper>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.gitile</groupId>
+	<artifactId>fast-spring-boot</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>fast-spring-boot</name>
+	<packaging>pom</packaging>
+	<description>fast-spring-boot is a Spring Framework based JavaEE application reference architecture. </description>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.3.RELEASE</version>
+	</parent>
+	<developers>
+		<developer>
+			<id>tulingfeng</id>
+			<name>涂灵峰</name>
+			<email>xtotly@aliyun.com</email>
+		</developer>
+	</developers>
+
+	<properties>
+		<fast.version>1.0.0-SNAPSHOT</fast.version>
+		<mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
+		<mybatis-spring-boot-starter.version>1.3.2</mybatis-spring-boot-starter.version>
+		<mybatis-plus.version>2.1.9</mybatis-plus.version>
+		<fastjson.version>1.2.46</fastjson.version>
+		<beetl.version>2.7.26</beetl.version>
+		<swagger.version>2.9.2</swagger.version>
+		<mysql-connector-java.version>5.1.45</mysql-connector-java.version>
+		<jjwt.version>0.9.0</jjwt.version>
+		<hutool.version>4.0.12</hutool.version>
+		<hutooljsch.version>0.1.54</hutooljsch.version>
+		<!-- Plugin的属性 -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+	</properties>
+	<modules>
+		<module>fast-core</module>
+		<module>fast-core-mybatis</module>
+		<module>fast-core-web</module>
+		<module>fast-web-example</module>
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- fast core -->
+			<dependency>
+				<groupId>com.gitile</groupId>
+				<artifactId>fast-core</artifactId>
+				<version>${fast.version}</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.gitile</groupId>
+				<artifactId>fast-core-mybatis</artifactId>
+				<version>${fast.version}</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.gitile</groupId>
+				<artifactId>fast-core-web</artifactId>
+				<version>${fast.version}</version>
+				<scope>compile</scope>
+			</dependency>
+			<!-- fast mybatis -->
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatisplus-spring-boot-starter</artifactId>
+				<version>${mybatisplus-spring-boot-starter.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.baomidou</groupId>
+				<artifactId>mybatis-plus</artifactId>
+				<version>${mybatis-plus.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis.spring.boot</groupId>
+				<artifactId>mybatis-spring-boot-starter</artifactId>
+				<version>${mybatis-spring-boot-starter.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql-connector-java.version}</version>
+			</dependency>
+			<!-- fast web -->
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>fastjson</artifactId>
+				<version>${fastjson.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.ibeetl</groupId>
+				<artifactId>beetl</artifactId>
+				<version>${beetl.version}</version>
+			</dependency>
+			<dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+			<!-- utils -->
+			<dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+			<dependency>
+				<groupId>cn.hutool</groupId>
+				<artifactId>hutool-all</artifactId>
+				<version>${hutool.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.jcraft</groupId>
+				<artifactId>jsch</artifactId>
+				<version>${hutooljsch.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+</project>
